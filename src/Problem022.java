@@ -1,22 +1,27 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
 
 public class Problem022 {
 	public static void main(String[] args) throws FileNotFoundException {
-		ArrayList<String> nameList = new ArrayList<String>();
 		
 		File file = new File("C:\\Users\\Seth\\Desktop\\Java\\Java Text Files\\EP_Problem022.txt");
 		Scanner reader = new Scanner(file);
-		while(reader.hasNext()){
-			nameList.add(reader.next());
-		}
+		String longString = reader.nextLine();
+		ArrayList<String> nameList = new ArrayList<>(Arrays.asList(longString.split(","))); 
+		
+		
 		Collections.sort(nameList);
 		System.out.println(nameList.get(0));
 		
-		System.out.println("Name Score of Seth: " + nameScore("SETH"));
+		long totalSum = 0;
+		for (int i = 1; i <= nameList.size(); i++){
+			totalSum += nameScore(nameList.get(i - 1)) * i;
+		}
+		System.out.println("The total of all the name scores is " + totalSum);
 	}
 	
 	public static int nameScore(String name){
