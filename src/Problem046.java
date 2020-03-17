@@ -1,5 +1,5 @@
 public class Problem046 {
-/* TASK: Find the smallest odd composit number that can't be written as a sum of a prime or twice a squire */
+/* TASK: Find the smallest odd composite number that can't be written as a sum of a prime or twice a squire */
 	public static boolean isPrime(int number) {
 		boolean isPrime = true;
 
