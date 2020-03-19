@@ -1,6 +1,8 @@
 import java.util.HashSet;
 import java.util.Set;
 
+// Extremely slow but works. 
+
 public class Problem060 {
 	private Set<Integer> primeSet;
 	private int primeCeiling;
@@ -54,16 +56,19 @@ public class Problem060 {
 							if (!concatenateIsPrime(a, e) || !concatenateIsPrime(b, e) || !concatenateIsPrime(c, e) || !concatenateIsPrime(d, e)) continue;
 							
 							sum = a + b + c + d + e;
+							System.out.println("Sum: " + sum + "\tFive Primes: " + a + " " + b + " " + c + " " + d + " " + e);
+							
 							if (sum < minSum){
 								minSum = sum;
+								fivePrimes[0] = a;
+								fivePrimes[1] = b;
+								fivePrimes[2] = c;
+								fivePrimes[3] = d;
+								fivePrimes[4] = e;
 							}
 							
-							fivePrimes[0] = a;
-							fivePrimes[1] = b;
-							fivePrimes[2] = c;
-							fivePrimes[3] = d;
-							fivePrimes[4] = e;
-							System.out.println("Sum: " + sum + "\tFive Primes: " + fivePrimes[0] + " " + fivePrimes[1] + " " + fivePrimes[2] + " " + fivePrimes[3] + " " + fivePrimes[4]);	
+
+								
 						
 						}
 					}
