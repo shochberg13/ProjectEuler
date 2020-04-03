@@ -1,5 +1,29 @@
-public class Problem 031 {
-	
+public class Problem031 {
+	public static void main(String[] args) {
+		int max = 200;
+		int count = 0;
+		for(int p200 = 0; p200 <= max / 200; p200++){			
+			for(int p100 = 0; p100 <= max / 100; p100++){
+				for(int p50 = 0; p50 <= max / 50; p50++){
+					for (int p20 = 0; p20 <= max / 20; p20++){
+						for (int p10 = 0; p10 <= max / 10; p10++){
+							for (int p5 = 0; p5 <= max / 5; p5++){
+								for (int p2 = 0; p2 <= max / 2; p2++){
+									for(int p1 = 0; p1 <= max / 1; p1++){
+										if (p1 * 1 + p2 * 2 + p5 * 5 + p10 * 10 + p20 * 20 + p50 * 50 + p100 * 100 + p200 * 200 == max){
+											count++;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+				
+		System.out.println("There are " + count + " possible combinations.");
+	}
 }
 
 
