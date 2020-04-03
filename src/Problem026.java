@@ -1,13 +1,11 @@
 public class Problem026 {
 	public static void main(String[] args) {
-		for (int i = 2; i < 11; i++ ){
-			System.out.println("1 / " + i + " has a repeating decimal length of " + lengthOfRepeat(i));
+		for (int i = 2; i < 20; i++){
+			System.out.println("The OG number " + i + " has initial decimals: " + initialDecimals(i));
 		}
-
-		
 	}
 	
-	public static String lengthOfRepeat(int divisor){
+	public static String initialDecimals(int divisor){
 		String entireQuotient = "";
 		int dividend = 1;
 		
@@ -16,32 +14,23 @@ public class Problem026 {
 			int quotient = dividend / divisor;
 			entireQuotient += quotient;
 			dividend -= divisor * quotient;
-		}while(entireQuotient.length() < 10);
-//		}while(notRepeating(entireQuotient));
+		}while(notRepeating(entireQuotient));
+		
 		return entireQuotient;
 	}
 	
 	public static boolean notRepeating(String number){
-		
-		int length = number.length();
-		if (length < 2){
+		if (number.length() < 2){
 			return true;
 		}
+		int cycleLength = number.length() / 3 + 1;
 		
-		int lengthOfRepeat = 0;
-		
-		for (int i = 2; i <= length; i++){
-			if (number.charAt(length - 1) == number.charAt(length - i)){
-				break;
-			}else{
-				lengthOfRepeat++;
+		for (int i = 1; i <= number.length() - cycleLength; i++){
+			if (number.charAt(number.length() - i) != number.charAt(number.length() - (i + cycleLength))){
+				return true;
 			}
 		}
-		
-		
-		
-		
+		System.out.println("\t\tThe number " + number + " has a cycle length of " + cycleLength);
 		return false;
 	}
-	
 }
